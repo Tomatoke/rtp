@@ -47,7 +47,9 @@ def load_templates(directory):
 def update_template_dropdown():
     directory = dir_var.get()
     templates = load_templates(directory)
-    template_combo['values'] = templates
+    if templates:
+        template_combo['values'] = templates
+        template_combo.current(0)
 
 root = tk.Tk()
 root.title("Random Tag Picker")
