@@ -150,15 +150,15 @@ def evaluate_ast(node: Node, files_by_name: dict, ref_stack: List[str] = None) -
         line = random.choice(ref_file.tags)
         return evaluate_ast(parse_tag_expression(line), files_by_name, ref_stack + [node.name])
     elif isinstance(node, Dot):
-        parts = []
+        result = []
         for child in node.children:
-            parts.extend(evaluate_ast(child, files_by_name, ref_stack))
-        return ["".join(parts)]
+            result.extend(evaluate_ast(child, files_by_name, ref_stack))
+        return ["".join(result)]
     elif isinstance(node, And):
         result = []
         for child in node.children:
             result.extend(evaluate_ast(child, files_by_name, ref_stack))
-        return result
+        return [",".join(result)]
     elif isinstance(node, Or):
         chosen = (random.choices(node.children, weights=node.weights, k=1)[0]
                   if node.weights and len(node.weights) == len(node.children)
