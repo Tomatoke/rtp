@@ -38,7 +38,7 @@ Copyright (c) 2025 Tomatoke
 rtp [オプション]
 
 オプション：
-    -d, --directory  タグディレクトリ（デフォルト：sample）
+    -d, --directory  タグディレクトリ（デフォルト：illust）
     -r, --rating     フィルタするレーティング (g(全年齢)/p(12～15禁)/r(18禁))
     -c, --count      抽出するタグ数
     -t, --template   使用するテンプレート名

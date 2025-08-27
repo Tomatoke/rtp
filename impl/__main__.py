@@ -11,7 +11,7 @@ def main():
     else:
         base_dir = Path(__file__).resolve().parent.parent
     texts_dir = base_dir / "texts"
-    default_dir = texts_dir / "sample"
+    default_dir = texts_dir / "illust"
     parser = argparse.ArgumentParser()
     parser.add_argument("-d", "--directory", type=str, help="texts directory")
     parser.add_argument("-r", "--rating", type=str, choices=["g","p","r"], help="rating")
@@ -58,7 +58,7 @@ def main():
             print(f"{cat}:")
             for file_name in sorted(output_by_cat_file[cat]):
                 tags = sorted(output_by_cat_file[cat][file_name])
-                print(f"  {file_name}: {', '.join(tags)}")
+                print(f"  {file_name}: {','.join(tags)}")
 
 if __name__ == "__main__":
     main()
